@@ -358,11 +358,23 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    footer a {
+      color: #cbd7ea;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .footer-grid {
       display: flex;
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     @media (max-width: 900px) {
@@ -426,8 +438,8 @@
             and exclusive add-on content while your membership is active.
           </p>
           <div class="button-row">
-            <a class="btn btn-primary" href="PASTE_YOUR_PADDLE_CHECKOUT_LINK_HERE">Buy Premium</a>
-            <a class="btn btn-secondary" href="PASTE_YOUR_DISCORD_INVITE_HERE">Join Discord</a>
+            <a class="btn btn-primary" href="#">Buy Premium</a>
+            <a class="btn btn-secondary" href="https://discord.gg/jYcxnaQVUA">Join Discord</a>
           </div>
           <p class="small-note">Access is active while your subscription is active. After payment, open a Discord ticket with your purchase email.</p>
         </div>
@@ -498,7 +510,7 @@
               <li>Premium support channel</li>
               <li>Access while subscription is active</li>
             </ul>
-            <a class="btn btn-primary" href="PASTE_YOUR_PADDLE_CHECKOUT_LINK_HERE">Subscribe Now</a>
+            <a class="btn btn-primary" href="#">Subscribe Now</a>
             <p class="small-note" style="margin-top: 14px;">Cancel anytime through the payment portal. Access may be removed when the subscription ends.</p>
           </div>
           <div class="card">
@@ -577,7 +589,7 @@
           <p>Get early builds, member-only updates, private support, and the newest premium content.</p>
           <div class="button-row" style="justify-content: center; margin-bottom: 0;">
             <a class="btn btn-primary" href="#">Buy Premium</a>
-            <a class="btn btn-secondary" href="mailto:YOUR_EMAIL_HERE">Contact Support</a>
+            <a class="btn btn-secondary" href="mailto:lingwasfoundwith11@gmail.com">Contact Support</a>
           </div>
         </div>
       </section>
@@ -586,7 +598,15 @@
     <footer>
       <div class="container footer-grid">
         <p>© 2026 SKYLARIA. All rights reserved.</p>
-        <p>Contact: lingwasfoundwith11@gmail.com · Discord:https://discord.gg/jYcxnaQVUA</p>
+
+        <div class="footer-links">
+          <p>Contact: lingwasfoundwith11@gmail.com · Discord: https://discord.gg/jYcxnaQVUA</p>
+          <p>
+            <a href="terms.html">Terms of Service</a> ·
+            <a href="privacy.html">Privacy Policy</a> ·
+            <a href="refund.html">Refund Policy</a>
+          </p>
+        </div>
       </div>
     </footer>
   </div>

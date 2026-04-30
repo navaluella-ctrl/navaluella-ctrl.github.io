@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SKYLARIA Premium Membership</title>
-  <meta name="description" content="SKYLARIA Premium Membership - early builds, premium updates, private support, and member-only content for the SKYLARIA Bedrock add-on community." />
+  <meta name="description" content="SKYLARIA Premium Membership - beta testing, premium access, custom creature requests, private support, and member-only content for the SKYLARIA Bedrock add-on community." />
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -27,13 +31,13 @@
     .page {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top left, rgba(70, 130, 255, 0.3), transparent 32%),
+        radial-gradient(circle at top left, rgba(70, 130, 255, 0.30), transparent 32%),
         radial-gradient(circle at top right, rgba(113, 68, 255, 0.25), transparent 30%),
         linear-gradient(180deg, #08111f 0%, #101a2e 50%, #070b14 100%);
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1140px, 92%);
       margin: 0 auto;
     }
 
@@ -49,7 +53,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
@@ -77,10 +81,10 @@
     }
 
     .hero {
-      padding: 76px 0 56px;
+      padding: 72px 0 46px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 46px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
       align-items: center;
     }
 
@@ -98,7 +102,7 @@
     }
 
     h1 {
-      font-size: clamp(40px, 7vw, 78px);
+      font-size: clamp(42px, 7vw, 78px);
       line-height: 0.95;
       letter-spacing: -2px;
       margin-bottom: 22px;
@@ -114,15 +118,15 @@
     .hero p {
       color: #cbd7ea;
       font-size: 18px;
-      max-width: 620px;
-      margin-bottom: 28px;
+      max-width: 640px;
+      margin-bottom: 26px;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .btn {
@@ -132,7 +136,7 @@
       min-height: 48px;
       padding: 0 22px;
       border-radius: 14px;
-      font-weight: 700;
+      font-weight: 800;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
@@ -164,37 +168,40 @@
       padding: 22px;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
       backdrop-filter: blur(14px);
+      overflow: hidden;
     }
 
-    .image-placeholder {
-      min-height: 340px;
+    .image-slot {
+      height: 380px;
       border-radius: 22px;
+      border: 1px dashed rgba(255, 255, 255, 0.32);
       background:
-        linear-gradient(135deg, rgba(82, 168, 255, 0.28), rgba(124, 58, 237, 0.28)),
+        linear-gradient(135deg, rgba(82, 168, 255, 0.20), rgba(124, 58, 237, 0.22)),
         repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 12px, transparent 12px 24px);
       display: grid;
       place-items: center;
       text-align: center;
       padding: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #e8f1ff;
     }
 
-    .image-placeholder strong {
+    .image-slot strong {
       display: block;
       font-size: 28px;
       margin-bottom: 8px;
     }
-   .hero-image {
-  width: 100%;
-  height: 340px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 22px;
-  display: block;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-}
+
+    .hero-image {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 22px;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
     section {
       padding: 62px 0;
     }
@@ -211,7 +218,7 @@
 
     .section-title p {
       color: #aebbd1;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
     }
 
@@ -224,64 +231,84 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .card {
+    .plans {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+
+    .custom-plans {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+
+    .card, .plan-card {
       border: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(255, 255, 255, 0.055);
       border-radius: 22px;
       padding: 24px;
     }
 
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: rgba(82, 168, 255, 0.15);
-      margin-bottom: 16px;
-      font-size: 22px;
+    .plan-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #aebbd1;
-      font-size: 15px;
-    }
-
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      border: 1px solid rgba(105, 188, 255, 0.45);
+    .plan-card.highlight {
+      border-color: rgba(105, 188, 255, 0.45);
       background: linear-gradient(180deg, rgba(82, 168, 255, 0.14), rgba(255, 255, 255, 0.05));
-      border-radius: 28px;
-      padding: 30px;
       box-shadow: 0 18px 60px rgba(73, 168, 255, 0.14);
     }
 
+    .plan-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .plan-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(105, 188, 255, 0.12);
+      color: #cfe7ff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
     .price {
-      font-size: 48px;
+      font-size: 42px;
+      line-height: 1;
       font-weight: 900;
-      margin: 12px 0;
+      margin: 2px 0;
     }
 
     .price span {
-      font-size: 17px;
+      font-size: 15px;
       color: #aebbd1;
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    .mini-image-slot {
+      min-height: 120px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.045);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #9fb0cb;
+      font-size: 13px;
+      padding: 14px;
     }
 
     ul {
       list-style: none;
-      margin: 20px 0;
+      margin: 4px 0 10px;
     }
 
     li {
@@ -296,13 +323,35 @@
       margin-right: 10px;
     }
 
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(82, 168, 255, 0.15);
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+
+    .card h3, .plan-card h3 {
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .card p, .plan-card p {
+      color: #aebbd1;
+      font-size: 15px;
+    }
+
+    .plan-card .btn {
+      margin-top: auto;
+      width: 100%;
+    }
+
     .steps {
       grid-template-columns: repeat(4, 1fr);
       counter-reset: step;
-    }
-
-    .step {
-      position: relative;
     }
 
     .step::before {
@@ -319,7 +368,7 @@
     }
 
     .faq {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
     }
 
@@ -386,13 +435,10 @@
       gap: 6px;
     }
 
-    @media (max-width: 900px) {
-      nav {
-        display: none;
-      }
-
+    @media (max-width: 980px) {
       .hero,
-      .pricing-wrap {
+      .plans,
+      .custom-plans {
         grid-template-columns: 1fr;
       }
 
@@ -403,6 +449,10 @@
     }
 
     @media (max-width: 620px) {
+      nav {
+        display: none;
+      }
+
       .features,
       .steps {
         grid-template-columns: 1fr;
@@ -416,8 +466,9 @@
         width: 100%;
       }
 
-      .image-placeholder {
-        min-height: 250px;
+      .image-slot,
+      .hero-image {
+        height: 260px;
       }
     }
   </style>
@@ -430,8 +481,8 @@
         <span>SKYLARIA</span>
       </a>
       <nav>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#custom">Custom Requests</a>
         <a href="#how-it-works">How it works</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -441,94 +492,168 @@
       <section class="hero container">
         <div>
           <div class="badge">✨ Premium Bedrock add-on membership</div>
-          <h1>Unlock the next level of <span class="gradient-text">SKYLARIA</span></h1>
+          <h1>Build deeper with <span class="gradient-text">SKYLARIA</span></h1>
           <p>
-            Join SKYLARIA Premium for early builds, member-only updates, private support,
-            and exclusive add-on content while your membership is active.
+            Join SKYLARIA for beta testing, premium member access, custom pokemon requests,
+            private Discord support, and exclusive add-on content while your membership is active.
           </p>
           <div class="button-row">
-            <a class="btn btn-primary" href="#">Buy Premium</a>
+            <a class="btn btn-primary" href="#memberships">View Plans</a>
             <a class="btn btn-secondary" href="https://discord.gg/jYcxnaQVUA">Join Discord</a>
           </div>
           <p class="small-note">Access is active while your subscription is active. After payment, open a Discord ticket with your purchase email.</p>
         </div>
 
-       <div class="preview-card">
-  <img src="hero.png" alt="SKYLARIA Premium preview" class="hero-image">
-</div>
+        <div class="preview-card">
+          <!-- To use your own picture, upload hero.png to GitHub and replace this image slot with:
+          <img src="hero.png" alt="SKYLARIA preview" class="hero-image">
+          -->
+          <div class="image-slot">
+            <div>
+              <strong>Picture Space</strong>
+              <span>Upload your best SKYLARIA screenshot or banner as hero.png and place it here.</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="features" class="container">
         <div class="section-title">
-          <h2>What Premium Includes</h2>
-          <p>Give buyers clear value beyond just one downloadable file. This makes your membership more trustworthy and harder to copy.</p>
+          <h2>What You Can Get</h2>
+          <p>Choose a monthly membership for access and updates, or choose a one-time custom request for specific add-on content.</p>
         </div>
         <div class="grid features">
           <div class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Early Builds</h3>
-            <p>Get access to premium builds and updates before public release.</p>
+            <div class="card-icon">🧪</div>
+            <h3>Beta Testing</h3>
+            <p>Get early testing access, beta previews, and a dedicated beta role.</p>
           </div>
           <div class="card">
-            <div class="card-icon">🛡️</div>
-            <h3>Premium Support</h3>
-            <p>Ask for setup help, bug reports, and addon support inside the premium Discord area.</p>
+            <div class="card-icon">💎</div>
+            <h3>Premium Access</h3>
+            <p>Access premium downloads, member-only updates, private support, and an exclusive Discord role.</p>
           </div>
           <div class="card">
-            <div class="card-icon">🎁</div>
-            <h3>Exclusive Content</h3>
-            <p>Receive member-only addon content, custom features, cosmetics, and experimental releases.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">🔄</div>
-            <h3>Monthly Updates</h3>
-            <p>Premium members receive the latest versions while the subscription remains active.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">💬</div>
-            <h3>Private Community</h3>
-            <p>Access premium channels for changelogs, downloads, previews, and direct announcements.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">✅</div>
-            <h3>Clean Access</h3>
-            <p>Simple payment, simple Discord verification, and clear membership terms.</p>
+            <div class="card-icon">🎨</div>
+            <h3>Custom Requests</h3>
+            <p>Request custom creature content for the SKYLARIA add-on project with clear one-time pricing.</p>
           </div>
         </div>
       </section>
 
-      <section id="pricing" class="container">
+      <section id="memberships" class="container">
         <div class="section-title">
-          <h2>Premium Membership</h2>
-          <p>Start with one simple monthly plan. You can add yearly or lifetime options later.</p>
+          <h2>Membership Plans</h2>
+          <p>Use these for recurring access. Replace each button link with your Paddle checkout link after approval.</p>
         </div>
-        <div class="pricing-wrap">
-          <div class="price-card">
-            <p class="badge">Recommended</p>
-            <h3>SKYLARIA Premium</h3>
-            <div class="price">$4.99 <span>/ month</span></div>
+
+        <div class="grid plans">
+          <div class="plan-card">
+            <div class="plan-top">
+              <h3>Beta Tester Access</h3>
+              <span class="plan-tag">Monthly</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">$0.99 <span>/ month</span></div>
+            <p>For users who want early testing access and beta previews.</p>
             <ul>
-              <li>Premium download access</li>
-              <li>Early addon updates</li>
-              <li>Private Discord role</li>
-              <li>Premium support channel</li>
+              <li>Beta tester Discord role</li>
+              <li>Early beta build access</li>
+              <li>Testing previews and feedback access</li>
               <li>Access while subscription is active</li>
             </ul>
-            <a class="btn btn-primary" href="#">Subscribe Now</a>
-            <p class="small-note" style="margin-top: 14px;">Cancel anytime through the payment portal. Access may be removed when the subscription ends.</p>
+            <a class="btn btn-primary" href="#">Buy Beta Access</a>
           </div>
-          <div class="card">
-            <h3>Important Terms</h3>
+
+          <div class="plan-card highlight">
+            <div class="plan-top">
+              <h3>Premium Membership</h3>
+              <span class="plan-tag">Recommended</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">$4.99 <span>/ month</span></div>
+            <p>For users who want premium builds, updates, and support.</p>
             <ul>
-              <li>Premium files are for personal use only.</li>
-              <li>Do not reupload, resell, or leak paid builds.</li>
-              <li>Membership gives access to current premium content while active.</li>
-              <li>Some experimental builds may contain bugs.</li>
-              <li>Refund requests must be sent through the support/contact method listed below.</li>
+              <li>Premium download access</li>
+              <li>Member-only updates</li>
+              <li>Private Discord support</li>
+              <li>Exclusive Discord role</li>
+              <li>Access while subscription is active</li>
             </ul>
-            <p class="small-note">
-              This project is an independent community add-on. Do not use official game or franchise logos unless you have permission.
-            </p>
+            <a class="btn btn-primary" href="#">Buy Premium</a>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-top">
+              <h3>Private Request Add-on</h3>
+              <span class="plan-tag">Optional</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">+$10 <span>one-time</span></div>
+            <p>Optional add-on for buyers who want their custom request to remain private.</p>
+            <ul>
+              <li>Request is not added to public premium builds</li>
+              <li>Useful for private/custom content</li>
+              <li>Must be purchased with a custom request</li>
+            </ul>
+            <a class="btn btn-secondary" href="#custom">View Custom Options</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="custom" class="container">
+        <div class="section-title">
+          <h2>One-Time Custom Requests</h2>
+          <p>Use safer product wording for Paddle: custom creature, rare-class creature, special variant, full evolution line, and private/non-public request.</p>
+        </div>
+
+        <div class="grid custom-plans">
+          <div class="plan-card">
+            <div class="plan-top">
+              <h3>Custom 3-Stage Line</h3>
+              <span class="plan-tag">One-time</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">$4.99</div>
+            <p>One custom creature line with 3 evolution stages.</p>
+            <ul>
+              <li>3-stage custom line request</li>
+              <li>Basic planning and implementation support</li>
+              <li>Delivered digitally through Discord/support</li>
+            </ul>
+            <a class="btn btn-primary" href="#">Buy 3-Stage Request</a>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-top">
+              <h3>Special Full-Line Request</h3>
+              <span class="plan-tag">One-time</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">$7.99</div>
+            <p>For pseudo-style, paradox-style, or stronger full-line creature requests.</p>
+            <ul>
+              <li>Special full-line request</li>
+              <li>Suitable for stronger/special variants</li>
+              <li>Delivered digitally through Discord/support</li>
+            </ul>
+            <a class="btn btn-primary" href="#">Buy Special Request</a>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-top">
+              <h3>Rare-Class Creature Request</h3>
+              <span class="plan-tag">One-time</span>
+            </div>
+            <div class="mini-image-slot">Optional image space</div>
+            <div class="price">$12.99</div>
+            <p>For one rare-class custom creature request, such as legendary-style, mythical-style, or special creature content.</p>
+            <ul>
+              <li>One rare-class custom creature</li>
+              <li>Special design/category request</li>
+              <li>Delivered digitally through Discord/support</li>
+            </ul>
+            <a class="btn btn-primary" href="#">Buy Rare Request</a>
           </div>
         </div>
       </section>
@@ -536,24 +661,24 @@
       <section id="how-it-works" class="container">
         <div class="section-title">
           <h2>How It Works</h2>
-          <p>A simple process for buyers, easy for you to manage before full automation.</p>
+          <p>A simple process for buyers while your Paddle and Discord automation is being prepared.</p>
         </div>
         <div class="grid steps">
           <div class="card step">
-            <h3>Subscribe</h3>
-            <p>Click the Paddle checkout button and complete the monthly payment.</p>
+            <h3>Choose</h3>
+            <p>Select a membership plan or one-time custom request.</p>
           </div>
           <div class="card step">
-            <h3>Join Discord</h3>
-            <p>Join the official Discord server after completing payment.</p>
+            <h3>Pay</h3>
+            <p>Complete checkout through the official payment page when available.</p>
           </div>
           <div class="card step">
             <h3>Verify</h3>
-            <p>Open a ticket and send your purchase email or order proof.</p>
+            <p>Join Discord and open a ticket with your purchase email.</p>
           </div>
           <div class="card step">
-            <h3>Get Access</h3>
-            <p>Receive the Premium role and download the latest premium build.</p>
+            <h3>Access</h3>
+            <p>Receive the correct Discord role, downloads, or custom request support.</p>
           </div>
         </div>
       </section>
@@ -561,38 +686,38 @@
       <section id="faq" class="container">
         <div class="section-title">
           <h2>FAQ</h2>
-          <p>Answer common buyer questions before they ask.</p>
+          <p>Important buyer information for memberships and custom requests.</p>
         </div>
         <div class="faq">
           <details>
-            <summary>Do I keep access forever?</summary>
-            <p>No. Premium access is active while your subscription is active. If the subscription ends, the premium Discord role and future premium downloads may be removed.</p>
+            <summary>Do I keep premium access forever?</summary>
+            <p>No. Monthly membership access is active while your subscription is active. If the subscription ends, premium roles and future downloads may be removed.</p>
           </details>
           <details>
-            <summary>How do I get the download after payment?</summary>
-            <p>Join the Discord server, open a support ticket, and send your purchase email. After verification, you will receive the Premium role.</p>
+            <summary>How do I get my Discord role?</summary>
+            <p>After purchase, join the Discord server and open a ticket with your purchase email. Staff will verify your payment and assign the correct role.</p>
           </details>
           <details>
-            <summary>Can I share the premium file with friends?</summary>
-            <p>No. Premium files are for personal use only. Sharing, reuploading, or reselling paid builds is not allowed.</p>
+            <summary>Can I share paid files?</summary>
+            <p>No. Premium files and custom request files are for personal use only. Sharing, reuploading, leaking, or reselling paid files is not allowed.</p>
           </details>
           <details>
-            <summary>Does this work on Realms?</summary>
-            <p>Compatibility can depend on the current Minecraft Bedrock version, enabled experiments, and the pack version. Check the premium Discord channel for the latest compatibility notes.</p>
+            <summary>What does the private add-on mean?</summary>
+            <p>The private/non-public add-on means your custom request will not be included in public premium builds. It must be purchased alongside a custom request.</p>
           </details>
           <details>
-            <summary>How do I cancel?</summary>
-            <p>You can cancel your subscription through the payment portal or by contacting support. Your access may remain until the end of the paid period.</p>
+            <summary>Are these physical products?</summary>
+            <p>No. All products are digital memberships, digital downloads, custom digital content requests, or support access.</p>
           </details>
         </div>
       </section>
 
       <section class="container">
         <div class="cta-box">
-          <h2>Ready to join SKYLARIA Premium?</h2>
-          <p>Get early builds, member-only updates, private support, and the newest premium content.</p>
+          <h2>Ready to join SKYLARIA?</h2>
+          <p>Choose beta access, premium membership, or a custom digital request.</p>
           <div class="button-row" style="justify-content: center; margin-bottom: 0;">
-            <a class="btn btn-primary" href="#">Buy Premium</a>
+            <a class="btn btn-primary" href="#memberships">View Plans</a>
             <a class="btn btn-secondary" href="mailto:lingwasfoundwith11@gmail.com">Contact Support</a>
           </div>
         </div>
@@ -602,7 +727,6 @@
     <footer>
       <div class="container footer-grid">
         <p>© 2026 SKYLARIA. All rights reserved.</p>
-
         <div class="footer-links">
           <p>Contact: lingwasfoundwith11@gmail.com · Discord: https://discord.gg/jYcxnaQVUA</p>
           <p>

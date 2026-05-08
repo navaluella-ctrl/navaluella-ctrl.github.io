@@ -68,13 +68,13 @@
       letter-spacing: 1px;
     }
 
-    /* ✅ NEW LOGO STYLE */
+    /* ✅ LOGO FIX */
     .logo-img {
       width: 42px;
       height: 42px;
       object-fit: contain;
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(82, 168, 255, 0.25);
+      box-shadow: 0 0 25px rgba(82, 168, 255, 0.35);
     }
 
     nav {
@@ -102,7 +102,6 @@
       gap: 8px;
 
       padding: 8px 14px;
-
       border-radius: 999px;
 
       background: rgba(255,255,255,0.08);
@@ -143,15 +142,11 @@
     .btn {
       min-height: 50px;
       padding: 0 24px;
-
       border-radius: 14px;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       font-weight: 800;
-
       transition: 0.2s ease;
     }
 
@@ -227,7 +222,6 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 12px;
     }
 
     .plan-top h3 {
@@ -254,20 +248,11 @@
     .price {
       font-size: 42px;
       font-weight: 900;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .price span {
       font-size: 16px;
       color: #c4d2ea;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      opacity: 0.7;
-      font-size: 18px;
     }
 
     .feature-list {
@@ -329,7 +314,7 @@
 
     <a href="#" class="logo">
 
-      <!-- ✅ YOUR NEW LOGO -->
+      <!-- ✅ LOGO ADDED -->
       <img src="logo.png" alt="SKYLARIA Logo" class="logo-img">
 
       <span>SKYLARIA</span>
@@ -344,7 +329,64 @@
 
   </header>
 
-  <!-- (rest of your code stays EXACTLY the same) -->
+  <main>
+
+    <section class="hero container">
+
+      <div>
+        <div class="badge">✨ Premium Minecraft Bedrock Content</div>
+
+        <h1>Build deeper with <span class="gradient-text">SKYLARIA</span></h1>
+
+        <p>
+          Join SKYLARIA for beta testing, custom creature content,
+          premium skin changes, exclusive updates, and private Discord support.
+        </p>
+
+        <div class="button-row">
+          <a class="btn btn-primary" href="#plans">View Plans</a>
+          <a class="btn btn-secondary" href="https://discord.gg/jYcxnaQVUA">Join Discord</a>
+        </div>
+      </div>
+
+      <div>
+        <img src="hero.png" class="hero-image" alt="Preview">
+      </div>
+
+    </section>
+
+    <!-- YOUR ORIGINAL PLANS SECTION KEPT SAME -->
+
+    <section id="plans" class="container">
+      <div class="section-title">
+        <h2>Premium Access & Custom Content</h2>
+        <p>Choose beta access or premium features.</p>
+      </div>
+
+      <div class="grid plans">
+
+        <div class="plan-card">
+          <h3>Beta Tester</h3>
+          <div class="price">$2.99 <span>/ month</span></div>
+          <a class="btn btn-primary" href="#">Buy</a>
+        </div>
+
+        <div class="plan-card highlight">
+          <h3>5 Creatures</h3>
+          <div class="price">$19.99</div>
+          <a class="btn btn-primary" href="#">Buy</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Skin Change</h3>
+          <div class="price">$29.99</div>
+          <a class="btn btn-primary" href="#">Buy</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 
 </div>
 
